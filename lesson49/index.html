@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lesson49</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>ניהול מוצרים</h1>
+
+    <div id="frame">
+        <table class="w3-table w3-striped">
+            <tr>
+                <th>#</th>
+                <th>תאריך הוספה</th>
+                <th>שם המוצר</th>
+                <th>מחיר</th>
+                <th></th>
+            </tr>
+
+            <tbody id="products"></tbody>
+        </table>
+
+
+        <button onclick="$('#modal').show()" class="w3-button w3-teal">מוצר חדש</button>
+
+        <div id="modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-zoom w3-card-4">
+                <header class="w3-container w3-teal">
+                    <span onclick="$('#modal').hide()" class="w3-button w3-display-topright">&times;</span>
+                    <h2>הוספת מוצר</h2>
+                </header>
+                <div class="w3-container">
+                    <p>
+                        <label>שם המוצר:</label>
+                        <input id="productName" class="w3-input w3-border w3-round-large" type="text">
+                    </p>
+                    <p>
+                        <label>מחיר:</label>
+                        <input id="price" class="w3-input w3-border w3-round-large" type="number">
+                    </p>
+                </div>
+                <footer>
+                    <button class="w3-btn w3-green" onclick="addProduct()">הוסף</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

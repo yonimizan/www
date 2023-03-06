@@ -1,0 +1,34 @@
+body {
+    font-family: "Raleway", sans-serif;
+    direction: rtl;
+}
+
+.w3-bar-block .w3-bar-item {
+    text-align: right;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.w3-third {
+    float: right;
+}
+
+.img {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+}
+
+.desc {
+    height: 150px;
+    overflow: hidden;
+}
+
+.desc:hover {
+    overflow-y: scroll;
+}
+
+.active {
+    color: #fff !important;
+    background-color: #009688 !important;
+}

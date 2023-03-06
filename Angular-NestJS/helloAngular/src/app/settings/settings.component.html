@@ -1,0 +1,6 @@
+<button (click)="reset()">איפוס הגדרות</button>
+
+<div class="frame" *ngFor="let s of settings">
+    <label>{{ s.title }}</label>
+    <app-range [(value)]="s.value" [min]="s.min" [max]="s.max" (valueChange)="change(s)"></app-range>
+</div>
