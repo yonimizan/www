@@ -15,7 +15,7 @@
 
         echo "<h1>הקובץ עלה בהצלחה</h1>";
 
-       // addLog("עלה קובץ [{$file['name']}]");
+        addLog("עלה קובץ [{$file['name']}]");
 
         // name / type / tmp_name / error / size
     }

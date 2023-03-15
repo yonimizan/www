@@ -1,47 +1,69 @@
 <?
+    // Numeric Array.
     $colors = [
-        "red",
-        "green",
-        "blue",
+        "Red",
+        "Green",
+        "Blue",
     ];
 
+    // אותו דבר
     $colors = array(
-        "red",
-        "green",
-        "blue",
+        "Red",
+        "Green",
+        "Blue",
     );
 
-    $colors[] = "purple";
+    // הוספת איברים למערך
+    $colors[] = "Purple";
+    // אותו דבר
+    array_push($colors, "Yellow");
+    array_unshift($colors, "Black");
 
-    array_push($colors, "yellow");
-    array_unshift($colors, "black");
-
+    // Associative Array.
+    // מערך אסוציאטיבי (כמו אובייקט)
     $person = [
         "id" => 1,
-        "firstname" => "Dani",
-        "lastname" => "Shovevani",
-        "phone" => "050-25252525",
-        "grades" => [ 5,100,90,70],
+        "firstName" => "Dani",
+        "lastName" => "Shovevani",
+        "phone" => "050-0500500",
+        "grades" => [50,100,90,80,60],
         "isActive" => true,
     ];
 
-    $person = array (
+    $person = array(
         "id" => 1,
-        "firstname" => "Dani",
-        "lastname" => "Shovevani",
-        "phone" => "050-25252525",
-        "grades" => [ 5,100,90,70],
+        "firstName" => "Dani",
+        "lastName" => "Shovevani",
+        "phone" => "050-0500500",
+        // "grades" => [50,100,90,80,60],
         "isActive" => true,
     );
-       
-     //הוספת איבר למערך
-     $person["age"] = 50;
 
+    // הוספת איבר למערך
+    $person['age'] = 50;
 
-     //echo var_dump($colors);
+    // לצורך המתכנת
+    // echo var_dump($colors);
 
-     //echo var_dump($person);
+    // מספר רנדומלי
+    // echo rand(100000, 999999);
 
-     
+    // הצפנה ב-MD5
+    // echo md5(123123);
 
+    // foreach ($person as $k => $p) {
+    //     echo "<p><b>$k: </b> $p</p>";
+    // }
+
+    // foreach ($colors as $i => $p) {
+    //     echo "<p><b>$i: </b> $p</p>";
+    // }
+
+    // $name = "שלום";
+
+    // echo "אהלן" . " אהלן $name <br>";
+
+    // echo "הגיל שלו הוא {$person['age']}";
+
+    echo var_dump($_SERVER['REMOTE_ADDR']);
 ?>
