@@ -1,5 +1,4 @@
 body {
-    background: #e0d5f1;
     direction: rtl;
 }
 
@@ -16,9 +15,9 @@ body {
 .container .card {
     width: 500px;
     margin: auto;
-    background: #673ab7;
     color: white;
     padding: 16px;
+    background-image: linear-gradient(#FFBE55, #5f2c82);
 }
 
 .container .card h1 {
@@ -28,8 +27,7 @@ body {
 }
 
 .container .card button {
-    background: #673ab7;
-    color: white;
+    background: #f8b857;
     width: 50%;
     margin: auto;
     margin-bottom: 12px;
