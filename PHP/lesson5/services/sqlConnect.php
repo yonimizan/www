@@ -9,7 +9,7 @@ $db = new Medoo([
 	// [required]
 	'type' => 'mysql',
 	'host' => 'localhost',
-	'database' => 'full-stack-w020222er',
+	'database' => 'full-stack 2',
 	'username' => 'root',
 	'password' => '',
  
