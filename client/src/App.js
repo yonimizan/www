@@ -1,14 +1,13 @@
 import './App.css';
-import sandbox from './sandbox/component/SandBox'
-import CardComponent from './cards/components/card/card';
+import Cards from './cards/components/Cards';
+// import Sandbox from './sandbox/Sandbox';
 
 function App () {
-  return(
-     <div className="App" >
-     <sandbox/>
-     <CardComponent/>
-    
-     </div>
+  return (
+    <div className="App">
+    {/* <Sandbox /> */}
+      <Cards />
+    </div>
   );
 }
 
