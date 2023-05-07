@@ -5,12 +5,6 @@
   font-family: "Roboto", "san-serif";
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .pink {
   color: pink;
 }
