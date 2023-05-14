@@ -1,13 +1,15 @@
 import './App.css';
-import Cards from './cards/components/Cards';
-// import Sandbox from './sandbox/Sandbox';
+import Layout from './layout/Layout';
+import {BrowserRouter} from 'react-router-dom';
+import Router from './routes/Router';
 
 function App () {
   return (
-    <div className="App">
-    {/* <Sandbox /> */}
-      <Cards />
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Router />
+      </Layout>
+    </BrowserRouter>
   );
 }
 
