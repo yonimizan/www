@@ -1,6 +1,6 @@
 {
-  "short_name": "Bcard App",
-  "name": "Bcard App using react - MERN",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "assets/images/business-card.png",
