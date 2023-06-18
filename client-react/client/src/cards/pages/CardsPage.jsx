@@ -1,29 +1,15 @@
-import { Container, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Container } from "@mui/material";
+import React from "react";
 import PageHeader from "../../components/PageHeader";
-import Cards from "../components/Cards";
 import { useEffect } from "react";
-import { getCards } from "../services/cardService";
-import Spinner from "../../components/Spinner";
-import Error from "../../components/Error";
+import CardsFeedback from "../components/CardsFeedback";
+import useCards from "../hooks/useCards";
 
 const CardsPage = () => {
-  const [cards, setCards] = useState(null);
-  const [error, setError] = useState(null);
-  const [pending, setPending] = useState(false);
+  const { pending, error, cards, handleGetCards } = useCards();
 
   useEffect(() => {
-    setPending(true);
-    getCards()
-      .then((data) => {
-        setPending(false);
-        setCards(data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setPending(false);
-        setError(error);
-      });
+    handleGetCards();
   }, []);
 
   return (
@@ -32,12 +18,12 @@ const CardsPage = () => {
         title="Cards Page"
         subtitle="On this page you can find all business cards from all categories"
       />
-      {pending && <Spinner />}
-      {error && <Error errorMessage={error} />}
-      {cards && !cards.length && (
-        <Typography>Oops.. there are not cards at all!</Typography>
-      )}
-      {cards && !!cards.length && <Cards cards={cards} />}
+      <CardsFeedback
+        cards={cards}
+        error={error}
+        pending={pending}
+        onDelete={() => {}}
+      />
     </Container>
   );
 };
