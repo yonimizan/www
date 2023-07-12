@@ -1,7 +1,10 @@
 const connectToDb = require ('./connectToDB');
+const connectToDb2 = require ('./connectToDB')
 const mongoose = require ('mongoose');
 
 connectToDb ();
+connectToDb2 ();
+
 
 const customerSchema = new mongoose.Schema ({
   name: String,
@@ -70,5 +73,3 @@ const getCustomers = async () => {
       console.log ('failed to delete customer ', error);
     }
   };
-  
-  deleteCustomer ('64987d5db6487952d2f58321');
