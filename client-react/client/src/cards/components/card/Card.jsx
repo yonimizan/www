@@ -7,16 +7,22 @@ import CardActionBar from "./CardActionBar";
 import { func } from "prop-types";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../routes/routesModel";
+import { getUser } from "../../../users/services/localStorageService";
 
 const CardComponent = ({ card, onLike, onDelete, onEdit }) => {
   const navigate = useNavigate();
-  return (
+
+  const userFromToken = getUser()
+  const isLiked = card.likes.includes(userFromToken._id)
+
+  return ( 
     <Card sx={{ maxWidth: 280 }}>
       <CardActionArea onClick={() => navigate(`${ROUTES.CARD_INFO}/${card._id}`)} >
         <CardHead image={card.image} />
         <CardBody card={card} />
       </CardActionArea>
       <CardActionBar
+        isLiked={isLiked}
         onLike={onLike}
         onDelete={onDelete}
         onEdit={onEdit}
