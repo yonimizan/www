@@ -3,10 +3,16 @@ import React from "react";
 import CardComponent from "./card/Card";
 import { arrayOf } from "prop-types";
 import cardType from "../models/types/cardType";
+import {changeLikeStatus, editCard, deleteCard} from "../services/cardService"
 
-const Cards = ({cards}) => {
 
-  const onLike = (cardId) => console.log(`you liked card no:${cardId}`);
+const Cards = ({cards, refreshCards }) => {
+
+  const onLike = async (cardId) => {
+    const data = await changeLikeStatus(cardId);
+    console.log(data)
+    refreshCards()
+  }
   const onDelete = (cardId) => console.log(`you deleted card no:${cardId}`);
   const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);
 

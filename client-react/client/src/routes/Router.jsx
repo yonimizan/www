@@ -16,12 +16,15 @@ import UseCounter from "../sandbox/useCounter/UseCounter";
 import UseCallBackComp from "../sandbox/memozation/UseCallBackComp";
 import A from "../sandbox/use-context/exeTwo/components/A";
 import FormTest from "../sandbox/forms/FormTest";
+import CardsPageFavorites from "../cards/pages/CardsPageFavorites";
 
 const Router = () => {
   return (
     <Routes>
       <Route path={ROUTES.ROOT} element={<CardsPage />} />
       <Route path={ROUTES.CARDS} element={<CardsPage />} />
+      <Route path={ROUTES.FAV_CARDS} element={<CardsPageFavorites />} />
+
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignUpPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />

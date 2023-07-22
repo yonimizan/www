@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { getToken } from '../../users/services/localStorageService';
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8181';
 
 export const getCards = async () => {
@@ -49,7 +49,7 @@ export const editCard = async card => {
 
 export const changeLikeStatus = async cardId => {
   try {
-    const {data} = await axios.put (`${apiUrl}/cards/${cardId}`);
+    const {data} = await axios.patch (`${apiUrl}/cards/${cardId}`,{}, {headers: {"x-auth-token": localStorage.getItem("token")}});
     return Promise.resolve(data);
   } catch (error) {
     return Promise.reject (error.messgae);

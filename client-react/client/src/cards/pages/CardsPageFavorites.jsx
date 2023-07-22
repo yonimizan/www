@@ -4,8 +4,9 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect } from "react";
 import CardsFeedback from "../components/CardsFeedback";
 import useCards from "../hooks/useCards";
+import { getUser } from "../../users/services/localStorageService";
 
-const CardsPage = () => {
+const CardsPageFavorites = () => {
   const { pending, error, cards, handleGetCards } = useCards();
 
   useEffect(() => {
@@ -15,11 +16,15 @@ const CardsPage = () => {
   return (
     <Container>
       <PageHeader
-        title="Cards Page"
-        subtitle="On this page you can find all business cards from all categories"
+        title="Favorites Page"
+        subtitle="On this page you can find all favorite cards from all categories"
       />
       <CardsFeedback
-        cards={cards}
+        cards={cards?.filter(card => {
+          const userFromToken = getUser()
+          const isLiked = card.likes.includes(userFromToken._id)
+          return isLiked
+        })}
         error={error}
         pending={pending}
         refreshCards={handleGetCards}
@@ -29,4 +34,4 @@ const CardsPage = () => {
   );
 };
 
-export default CardsPage;
+export default CardsPageFavorites;

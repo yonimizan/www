@@ -6,7 +6,7 @@ import CallIcon from "@mui/icons-material/Call";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { func, string } from "prop-types";
 
-const CardActionBar = ({ cardId, onLike, onDelete, onEdit }) => {
+const CardActionBar = ({isLiked, cardId, onLike, onDelete, onEdit }) => {
   return (
     <>
       <CardActions
@@ -25,7 +25,7 @@ const CardActionBar = ({ cardId, onLike, onDelete, onEdit }) => {
           <IconButton aria-label="call">
             <CallIcon />
           </IconButton>
-          <IconButton onClick={() => onLike(cardId)} aria-label="like">
+          <IconButton color={isLiked ? "error": ""} onClick={() => onLike(cardId)} aria-label="like">
             <FavoriteIcon />
           </IconButton>
         </Box>
