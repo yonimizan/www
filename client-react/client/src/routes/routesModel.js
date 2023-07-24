@@ -9,6 +9,7 @@ const ROUTES = {
     LOGIN:"/login",
     CARD_INFO:"/card-info",
     USER_PROFILE:"/user-profile",
+    CARD_EDIT: "/card-edit"
     // EDIT_PROFILE:"/edit-profile",
 };
 

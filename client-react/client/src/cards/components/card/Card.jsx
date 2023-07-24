@@ -13,7 +13,8 @@ const CardComponent = ({ card, onLike, onDelete, onEdit }) => {
   const navigate = useNavigate();
 
   const userFromToken = getUser()
-  const isLiked = card.likes.includes(userFromToken._id)
+  const isLiked = card.likes.includes(userFromToken?._id);
+  const displayTrash = userFromToken?.isAdmin;
 
   return ( 
     <Card sx={{ maxWidth: 280 }}>
@@ -22,6 +23,7 @@ const CardComponent = ({ card, onLike, onDelete, onEdit }) => {
         <CardBody card={card} />
       </CardActionArea>
       <CardActionBar
+        displayTrash={displayTrash}
         isLiked={isLiked}
         onLike={onLike}
         onDelete={onDelete}

@@ -17,6 +17,7 @@ import UseCallBackComp from "../sandbox/memozation/UseCallBackComp";
 import A from "../sandbox/use-context/exeTwo/components/A";
 import FormTest from "../sandbox/forms/FormTest";
 import CardsPageFavorites from "../cards/pages/CardsPageFavorites";
+import CardEditPage from "../cards/pages/CardEditPage";
 
 const Router = () => {
   return (
@@ -24,6 +25,8 @@ const Router = () => {
       <Route path={ROUTES.ROOT} element={<CardsPage />} />
       <Route path={ROUTES.CARDS} element={<CardsPage />} />
       <Route path={ROUTES.FAV_CARDS} element={<CardsPageFavorites />} />
+
+      <Route path={`${ROUTES.CARD_EDIT}/:id`} element={<CardEditPage />} />
 
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignUpPage />} />

@@ -2,7 +2,11 @@ import axios from 'axios';
 import { getToken } from '../../users/services/localStorageService';
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8181';
 
+const getHeader = () => ({headers: {"x-auth-token": localStorage.getItem("token")}})
+
 export const getCards = async () => {
+
+
   try {
     const {data} = await axios.get (`${apiUrl}/cards`);
     return Promise.resolve(data);
@@ -31,16 +35,16 @@ export const getMyCards = async () => {
 
 export const creatCard = async card => {
   try {
-    const {data} = await axios.post (`${apiUrl}/cards`, card);
+    const {data} = await axios.post (`${apiUrl}/cards`, card, getHeader());
     return Promise.resolve(data);
   } catch (error) {
     return Promise.reject (error.messgae);
   }
 };
 
-export const editCard = async card => {
+export const editCard = async (card, id) => {
   try {
-    const {data} = await axios.put (`${apiUrl}/cards`, card);
+    const {data} = await axios.put (`${apiUrl}/cards/${id}`, card, getHeader());
     return Promise.resolve(data);
   } catch (error) {
     return Promise.reject (error.messgae);
@@ -49,7 +53,7 @@ export const editCard = async card => {
 
 export const changeLikeStatus = async cardId => {
   try {
-    const {data} = await axios.patch (`${apiUrl}/cards/${cardId}`,{}, {headers: {"x-auth-token": localStorage.getItem("token")}});
+    const {data} = await axios.patch (`${apiUrl}/cards/${cardId}`,{} ,getHeader());
     return Promise.resolve(data);
   } catch (error) {
     return Promise.reject (error.messgae);
@@ -58,7 +62,7 @@ export const changeLikeStatus = async cardId => {
 
 export const deleteCard = async cardId => {
   try {
-    const {data} = await axios.delete (`${apiUrl}/cards/${cardId}`);
+    const {data} = await axios.delete (`${apiUrl}/cards/${cardId}`, getHeader());
     return Promise.resolve(data);
   } catch (error) {
     return Promise.reject (error.messgae);

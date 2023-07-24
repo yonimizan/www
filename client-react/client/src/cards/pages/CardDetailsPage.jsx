@@ -1,21 +1,35 @@
 import { Container, Typography } from "@mui/material";
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import CardComponent from "../components/card/Card";
 import useCards from "../hooks/useCards";
 import CardFeedback from "../components/card/CardFeedback";
 import Spinner from "../../components/Spinner";
 import Error from "../../components/Error";
+import { changeLikeStatus, deleteCard } from "../services/cardService";
 
 const CardDetailsPage = () => {
   const { id } = useParams();
   const { pending, error, card, handleGetCard } = useCards();
   const subTitle = `Here you can find details about your selected card number:${id}`;
 
-  const onLike = (cardId) => console.log(`you liked card no:${cardId}`);
-  const onDelete = (cardId) => console.log(`you deleted card no:${cardId}`);
-  const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);
+  const navigate = useNavigate()
+  const onLike = async (cardId) => {
+    const data = await changeLikeStatus(cardId);
+    console.log(data)
+   
+  }
+  const onDelete = async (cardId) => {
+    const data = await deleteCard(cardId);
+    console.log(data)
+ 
+    
+  }
+  const onEdit = (cardId) =>{
+    console.log("adsdfasdasd")
+    navigate("/card-edit/"+cardId)
+  }
 
   useEffect(() => {
     handleGetCard(id);
