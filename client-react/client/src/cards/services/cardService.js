@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { getToken } from '../../users/services/localStorageService';
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8181';
 
 const getHeader = () => ({headers: {"x-auth-token": localStorage.getItem("token")}})
