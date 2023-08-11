@@ -14,7 +14,7 @@ const Logo = () => {
           fontFamily: "fantasy",
         }}
       >
-        BCard
+        iCard
       </Typography>
     </NavBarLink>
   );

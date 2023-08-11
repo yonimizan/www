@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const cardSchema = {
+const addCardSchema = {
   title: Joi.string()
     .required(),
 
@@ -17,6 +17,7 @@ const cardSchema = {
 
   cardNumber: Joi.any()
   .required(),
+
 };
 
-export default cardSchema;
+export default addCardSchema;

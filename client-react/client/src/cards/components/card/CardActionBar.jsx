@@ -6,7 +6,7 @@ import CallIcon from "@mui/icons-material/Call";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { func, string } from "prop-types";
 
-const CardActionBar = ({ isLiked, cardId, onLike, onDelete, onEdit, displayTrash }) => {
+const CardActionBar = ({ isLiked, cardId, onLike, onDelete, onEdit, displayTrash,displayEdit }) => {
   return (
     <>
       <CardActions
@@ -18,7 +18,7 @@ const CardActionBar = ({ isLiked, cardId, onLike, onDelete, onEdit, displayTrash
             <DeleteIcon />
           </IconButton>}
           
-          {displayTrash &&       <IconButton onClick={() => onEdit(cardId)} aria-label="edit">
+          {displayEdit && <IconButton onClick={() => onEdit(cardId)} aria-label="edit">
             <EditIcon />
           </IconButton>}
     
@@ -27,11 +27,14 @@ const CardActionBar = ({ isLiked, cardId, onLike, onDelete, onEdit, displayTrash
           <IconButton aria-label="call">
             <CallIcon />
           </IconButton>
-          <IconButton color={isLiked ? "error" : ""} onClick={() => onLike(cardId)} aria-label="like">
+          { displayTrash && <IconButton color={isLiked ? "error" : ""} onClick={() => onLike(cardId)} aria-label="like">
             <FavoriteIcon />
-          </IconButton>
+          </IconButton>}
         </Box>
       </CardActions>
+
+      
+      
     </>
   );
 };

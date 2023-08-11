@@ -35,7 +35,8 @@ export const getMyCards = async () => {
 
 export const creatCard = async card => {
   try {
-    const {data} = await axios.post (`${apiUrl}/cards`, card, getHeader());
+    console.log(card)
+    const {data} = await axios.post (`${apiUrl}/cards`, {...card, image: {url: card.imageUrl, alt: card.imageAlt}, imageUrl: undefined, imageAlt: undefined}, getHeader());
     return Promise.resolve(data);
   } catch (error) {
     return Promise.reject (error.messgae);

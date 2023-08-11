@@ -6,7 +6,7 @@ const cardType = shape({
   _id: string.isRequired,
   title: string.isRequired,
   subtitle: string.isRequired,
-  description: string.isRequired,
+  description: string,
   address: addressType.isRequired,
   image: imageType.isRequired,
   bizNumber: number.isRequired,

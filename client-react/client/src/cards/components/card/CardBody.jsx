@@ -9,7 +9,6 @@ import {
 import cardType from "../../models/types/cardType";
 
 const CardBody = ({ card }) => {
-  const { street, houseNumber, city } = card.address;
   return (
     <>
       <CardContent>
@@ -31,12 +30,6 @@ const CardBody = ({ card }) => {
             variant="body2"
             color="text.secondary"
           >
-            <Typography fontWeight={700} component="span">
-              Adress:
-            </Typography>
-            <Typography component="span">
-              {street} {houseNumber} {city}
-            </Typography>
           </Typography>
           <Typography
             sx={{ display: "flex", gap: 1 }}

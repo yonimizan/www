@@ -7,7 +7,7 @@ const validateCardWithJoi = card => {
   const schema = Joi.object({
     title: Joi.string().min(2).max(256).required(),
     subtitle: Joi.string().min(2).max(256).required(),
-    description: Joi.string().min(2).max(1024).required(),
+    description: Joi.string().min(2).max(1024),
     phone: Joi.string()
       .ruleset.regex(/0[0-9]{1,2}\-?\s?[0-9]{3}\s?[0-9]{4}/)
       .rule({ message: 'card "phone" mast be a valid phone number' })
@@ -16,8 +16,7 @@ const validateCardWithJoi = card => {
       .ruleset.pattern(
         /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
       )
-      .rule({ message: 'card "mail" mast be a valid mail' })
-      .required(),
+      .rule({ message: 'card "mail" mast be a valid mail' }),
 
     web: Joi.string()
       .ruleset.regex(urlRegex)
@@ -41,8 +40,7 @@ const validateCardWithJoi = card => {
         street: Joi.string().required(),
         houseNumber: Joi.number().required(),
         zip: Joi.number(),
-      })
-      .required(),
+      }),
     bizNumber: Joi.number().allow(""),
     user_id: Joi.string().allow(""),
   });

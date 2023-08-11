@@ -6,10 +6,6 @@ const { DEFAULT_VALIDATION, URL } = require("../../helpers/mongooseValidators");
 const cardSchema = new mongoose.Schema({
   title: DEFAULT_VALIDATION,
   subtitle: DEFAULT_VALIDATION,
-  description: {
-    ...DEFAULT_VALIDATION,
-    maxLength: 1024,
-  },
   phone: {
     type: String,
     required: true,
@@ -17,11 +13,10 @@ const cardSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
     match: RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/),
     lowercase: true,
     trim: true,
-    unique: true,
+    unique: false
   },
   web: URL,
   image: Image,

@@ -12,10 +12,6 @@ const normalizeCard = async (rawCard, userId) => {
   return {
     ...rawCard,
     image,
-    address: {
-      ...rawCard.address,
-      state: rawCard.address.state || "",
-    },
     bizNumber: rawCard.bizNumber || (await generateBizNumber()),
     user_id: rawCard.user_id || userId,
   };
